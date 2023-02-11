@@ -44,16 +44,23 @@
         
             <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="pretraga" onkeyup="pretragaPoImenu()">
-            
+            <button type="button" class="btn btn-primary" style="float:right">
+                        <i class="fas fa-search"></i>
+                      </button>
             </form>
         </div>
         </nav>
  
 
 
-    <div class="container" >
+    <div class="container" style="margin-top:50px">
  
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addNewModal"   >Dodaj novi komad odece</button>  
+             <button type="button" class="btn btn-warning" onclick="sortiraj()">Sortiraj<i class="fa fa-sort" aria-hidden="true" ></i></button>
+                      <select name="kriterijum" id="kriterijum" class="criteria">
+                          <option value="price">Cena</option> 
+                          <option value="name">Naziv</option>
+                    </select>
+           
             
             
             <table class="table" id="tabelaOdeca" style="width:100%">
@@ -95,7 +102,7 @@
                   <?php endwhile;?>
                 </tbody>
         </table>
-            
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addNewModal"   >Dodaj novi komad odece</button>  
         <br><br><br><br><br>   
     </div>
 

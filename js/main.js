@@ -155,3 +155,62 @@ function pretragaPoImenu() {
       }
     });
 }
+
+function sortiraj() {
+ 
+    var table, rows, switching, i, j, z, k, x, y, shouldSwitch;
+    table = document.getElementById("tabelaOdeca");
+
+
+    var e = document.getElementById("kriterijum");
+    console.log(e);
+    var result = e.options[e.selectedIndex].value;
+   console.log(result);
+
+ 
+
+
+
+    //SORT po ceni
+    // sortira tako da najjeftiniji postovi idu na vrh
+    if (result == "price") {
+        rows = table.rows;
+        for (i = 1; i < (rows.length - 1); i++) {
+            for (j = i + 1; j < rows.length; j++) {
+                x = rows[i].getElementsByTagName("TD")[3];
+                y = rows[j].getElementsByTagName("TD")[3];
+                z = parseInt(x.innerHTML);
+                k = parseInt(y.innerHTML);
+                if (z > k) {
+                    rows[i].parentNode.insertBefore(rows[j], rows[i]);
+                }
+            }
+        }
+
+    }
+
+
+    //SORT po imenu  
+ 
+    if (result == "name") {
+        rows = table.rows;
+        for (i = 1; i < (rows.length - 1); i++) {
+            for (j = i + 1; j < rows.length; j++) {
+                x = rows[i].getElementsByTagName("TD")[0];
+                y = rows[j].getElementsByTagName("TD")[0];
+
+                if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                    rows[i].parentNode.insertBefore(rows[j], rows[i]);
+                }
+            }
+        }
+    }
+
+
+}
+
+ 
+
+
+
+
