@@ -10,6 +10,7 @@ class Velicina{
         return $conn->query($upit);
 
     }
+ 
 
 
 
