@@ -38,6 +38,8 @@
 
     <div class="container" >
  
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addNewModal"   >Dodaj novi komad odece</button>  
+            
             
             <table class="table" id="tabelaOdeca" style="width:100%">
                 <thead>
@@ -98,6 +100,93 @@
 
 
 
+<!-- add form modal -->
+<div class="modal fade" id="addNewModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"> Dodaj novi komad odece</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form id="addform" name="addform" method="POST" enctype="multipart/form-data">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="naziv" class="col-form-label">Naziv</label>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1"><i class="fas fa-tshirt"></i> 
+              </div>
+              <input type="text" class="form-control" id="naziv" name="naziv" required="required">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="opis" class="col-form-label">Opis</label>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1"><i class="fa fa-pencil"   aria-hidden="true"></i></span>
+              </div>
+              <input type="text" class="form-control" id="opis" name="opis" required="required">
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="velicina" class="col-form-label">Velicina</label>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1"><i class="fas fa-ruler"></i></i></span>
+              </div>
+              <select name="velicina" id="velicina">
+                                      <?php
+                                        
+                                        while($red =   $velicine->fetch_array()):
+                                          $oznaka=$red["oznaka"];
+                                    
+                                      ?>
+                                        <option value=<?php echo $red["id"]?>><?php echo $red["oznaka"]?></option>
+
+
+                                        <?php   endwhile;   ?>
+                                      </select>
+            </div>
+          </div>
+          
+
+          <div class="form-group">
+            <label for="cena" class="col-form-label">Cena</label>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1"><i class="fa fa-tag"   aria-hidden="true"></i></span>
+              </div>
+              <input type="text" class="form-control" id="cena" name="cena" required="required">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="uploadfile" class="col-form-label">Slika</label>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1"><i class="fa fa-picture-o"   aria-hidden="true"></i></span>
+              </div>
+              <input type="file" class="form-control" id="uploadfile" name="uploadfile"   >
+            </div>
+          </div>
+
+
+ 
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-success" id="addButton" >Submit</button> 
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- add form modal end -->
 
 
 
