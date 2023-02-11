@@ -71,3 +71,66 @@ function prikaziOdecu(prikazid){
     });
 
 }
+
+
+function azurirajOdecu(azurirajid){  
+    
+ 
+    $.post("handler/get.php",{azurirajid:azurirajid},function(data,status){
+         
+          var odecaid=JSON.parse(data);//
+                
+        console.log(odecaid.slika);
+        console.log(odecaid.id);
+
+          $('#sakrivenoPolje2').val(odecaid.slika  );
+          $('#sakrivenoPolje').val(odecaid.id  );
+          $('#naziv2').val(odecaid.naziv  );
+          $('#opis2').val(odecaid.opis);
+          $('#cena2').val(odecaid.cena);
+   
+         
+  
+  
+      }); 
+
+
+}
+ 
+$('#editform').submit(function () {
+    var form = $('#editform')[0];
+    var formData = new FormData(form);
+    event.preventDefault();  
+   
+ 
+
+
+    request = $.ajax({  
+        url: 'handler/update.php',  
+        type: 'post', 
+        processData: false,
+        contentType: false,
+        data: formData
+    });
+
+    request.done(function (response, textStatus, jqXHR) {
+      
+        if (response === "Success") {
+            alert("Odeca azurirana");
+            
+            location.reload(true);
+        }
+        else {
+       
+            console.log("Odeca nije azurirana" + response);
+        }
+    });
+
+    request.fail(function (jqXHR, textStatus, errorThrown) {
+        console.error('Greska: ' + textStatus, errorThrown);
+    });
+     
+    
+
+
+});
