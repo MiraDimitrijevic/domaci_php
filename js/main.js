@@ -134,3 +134,24 @@ $('#editform').submit(function () {
 
 
 });
+
+function pretragaPoImenu() {
+    const input = document.querySelector('#pretraga');
+    const filter = input.value.toUpperCase();
+    const table = document.querySelector('#tabelaOdeca');
+    const rows = Array.from(table.querySelectorAll('tr'));
+  
+    rows.forEach((row) => {
+      const columns = Array.from(row.querySelectorAll('td'));
+      const matches = columns.some((column) => {
+        const text = column.textContent.toUpperCase();
+        return text.includes(filter);
+      });
+  
+      if (matches) {
+        row.style.display = '';
+      } else {
+        row.style.display = 'none';
+      }
+    });
+}
