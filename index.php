@@ -94,6 +94,53 @@
 
 
 
+       <!--Modal: PROFILE-->
+       <div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog cascading-modal modal-avatar modal-sm" role="document">
+    <!--Content-->
+    <div class="modal-content">
+
+      <!--Header-->
+      <div class="modal-header" >
+        <img src="" alt="avatar" id="IMG" class="rounded"  style="margin-left: auto;margin-right: auto; ">
+      </div>
+      <!--Body-->
+      <div class="modal-body text-center mb-1">
+
+        <h5 class="mt-1 mb-2" id="nazivPreview"></h5>
+
+        <div class="md-form ml-0 mr-0" style="text-align: center;">
+           <p id="descriptionPreview">   </p>
+           <i id="pricePreview" class="fa fa-tag"  aria-hidden="true"></i>
+            <br>
+      
+        </div>
+
+        <div class="text-center mt-4">
+           
+
+
+        </div>
+      </div>
+
+
+      <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+         
+        </div>
+
+
+
+
+    </div>
+    <!--/.Content-->
+  </div>
+</div>
+<!--Modal: Login with Avatar Form-->
+
+ 
+
+
 
 
 

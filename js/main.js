@@ -35,8 +35,7 @@ $('#addform').submit(function () {
 }); 
 
 function obrisiOdecu(deleteid){
-alert("A")
-
+ 
     request = $.ajax({  
         url: 'handler/delete.php',  
         type: 'post', 
@@ -52,5 +51,23 @@ alert("A")
     });
 
 
+
+}
+
+function prikaziOdecu(prikazid){
+ 
+
+    $.post("handler/get.php",{prikazid:prikazid},function(data,status){
+ 
+        var odecaid=JSON.parse(data); 
+          
+        $('#nazivPreview').text("   " + odecaid.naziv  );
+        $('#descriptionPreview').text("   " +  odecaid.opis);
+        $('#pricePreview').text("   " +  odecaid.cena);
+ 
+        document.getElementById("IMG").src = 'images/'+odecaid.slika;
+
+
+    });
 
 }
